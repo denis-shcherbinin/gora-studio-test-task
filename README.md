@@ -27,3 +27,7 @@ go run .\cmd\app\main.go
 ### Удаление фото
 ![image](https://user-images.githubusercontent.com/61324182/131260654-107858d3-0734-4b7c-a927-5bcaca302e97.png)
 ![image](https://user-images.githubusercontent.com/61324182/131260669-12dba156-7387-4e84-9537-35a694552718.png)
+### Таблица из БД
+![image](https://user-images.githubusercontent.com/61324182/131262205-d33a406b-1949-4dba-8d7b-fa11071ccf26.png)
+### Логи
+![image](https://user-images.githubusercontent.com/61324182/131262215-d3061ca9-67ca-4efd-9ddf-64c1b173875d.png)
