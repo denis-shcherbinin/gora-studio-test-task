@@ -1,0 +1,145 @@
+basePath: /api/v1/
+definitions:
+  entity.Photo:
+    properties:
+      id:
+        type: integer
+      url:
+        type: string
+    type: object
+  v1.deletePhotoInput:
+    properties:
+      id:
+        type: integer
+    type: object
+  v1.photoGetAllResponse:
+    properties:
+      photos:
+        items:
+          $ref: '#/definitions/entity.Photo'
+        type: array
+    type: object
+  v1.photoUploadResponse:
+    properties:
+      id:
+        type: integer
+      url:
+        type: string
+    type: object
+  v1.response:
+    properties:
+      message:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: API Server for GORA Studio Photo Gallery Test Task
+  title: GORA Studio Photo Gallery Test Task API
+  version: "1.0"
+paths:
+  /photo/all:
+    get:
+      description: Getting all photos
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.photoGetAllResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.response'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/v1.response'
+      summary: Getting all photos
+      tags:
+      - Photo Gallery
+  /photo/delete:
+    delete:
+      consumes:
+      - application/json
+      description: Deleting photo by id
+      parameters:
+      - description: photo id to delete
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/v1.deletePhotoInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.response'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/v1.response'
+      summary: Deleting Photo By Id
+      tags:
+      - Photo Gallery
+  /photo/upload:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Photo upload
+      parameters:
+      - description: Image [jpeg/jpg/png], 32 MB maximum
+        in: formData
+        name: image
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/v1.photoUploadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.response'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/v1.response'
+      summary: Photo upload
+      tags:
+      - Photo Gallery
+swagger: "2.0"

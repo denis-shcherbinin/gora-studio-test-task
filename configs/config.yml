@@ -1,0 +1,9 @@
+http:
+  port: "8080"
+  read_timeout: 10s
+  write_timeout: 10s
+  max_header_bytes: 1
+
+sqlite:
+  driver_name: "sqlite3"
+  data_source_name: "./photo-gallery-app.db"
