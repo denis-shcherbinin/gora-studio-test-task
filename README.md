@@ -11,7 +11,10 @@
 * https://github.com/gin-gonic/gin - web
 * https://github.com/swaggo/swag - swagger документация
 ## Запуск:
-По пути ```..\gora-studio-test-task\``` запустите ```go run .\cmd\app\main.go```
+По пути ```..\gora-studio-test-task\``` запустите:
+```sh 
+go run .\cmd\app\main.go
+```
 ## Скриншоты
 ### Swagger
 ![image](https://user-images.githubusercontent.com/61324182/131260533-cedd1ace-df9a-4e8b-ae2a-47d14c185a63.png)
